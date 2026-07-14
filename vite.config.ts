@@ -17,16 +17,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: (() => {
-    // Use repository-aware base path when building in GitHub Actions for Pages.
-    if (process.env.GITHUB_ACTIONS !== 'true') return '/'
-
-    const repository = process.env.GITHUB_REPOSITORY ?? ''
-    const repoName = repository.split('/')[1] ?? ''
-    if (!repoName || repoName.toLowerCase().endsWith('.github.io')) return '/'
-
-    return `/${repoName}/`
-  })(),
+  base: "/sacred-scripture/",
   plugins: [
     figmaAssetResolver(),
     react(),
@@ -34,11 +25,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
     },
   },
-
-  // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
+ or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
 })
