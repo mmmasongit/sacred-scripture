@@ -28,6 +28,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
- or .ts files to this.
+
   assetsInclude: ['**/*.svg', '**/*.csv'],
 })
